@@ -40,7 +40,7 @@ function Header({ setCurrentPage }) {
             <a onClick={() => setCurrentPage('login')} className="login-link">Увійти тут</a>
           </div>
         </div>
-        <button className="wishlist-button">
+        <button className="wishlist-button" onClick={() => setCurrentPage('wishlist')}>
           <img src={btnWishlist} alt="Wishlist" className="icon-image" />
         </button>
         <div className="cart-section">

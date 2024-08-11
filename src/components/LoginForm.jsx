@@ -115,7 +115,7 @@ const LoginForm = () => {
             )}
             <button type="submit">{isLogin ? 'Увійти' : 'Створити'}</button>
           </form>
-          {isLogin && <a href="#">Втратили пароль?</a>}
+          {isLogin && <a href="/privacy-policy">Втратили пароль?</a>}
         </div>
       </div>
     </div>
