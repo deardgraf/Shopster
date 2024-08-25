@@ -12,14 +12,22 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userData = { Email: email, Password: password };
+    const userData = {
+      Email: email,
+      PasswordHash: password,
+      RoleId: 2, // Наприклад, "2" для звичайного користувача
+      Phone: '', // Порожнє значення або дефолтний номер
+      Address: '', // Порожнє значення або дефолтна адреса
+      CreatedAt: new Date().toISOString(), // Поточна дата і час
+      LastLogin: null, // Значення null для останнього входу
+    };
 
     if (!isLogin) {
       userData.UserName = userName;
     }
 
     try {
-      const response = await fetch(`http://localhost:5123/gateway/${isLogin ? 'autorizes/0' : 'users'}`, {
+      const response = await fetch(`http://localhost:5123/gateway/users${isLogin ? 'autorizes/0' : ''}`, {
         method: isLogin ? 'PUT' : 'POST',
         headers: {
           'Accept': 'application/json',
