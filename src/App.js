@@ -7,12 +7,19 @@ import Wishlist from './components/Wishlist';
 
 const sampleWishlistItems = [
   {
-    name: "Мобільний телефон Apple iPhone 15 Pro Max 256GB Natural Titanium (MU793RX/A)",
-    price: "64 999 ₴",
-    addedDate: "17.07.2024",
-    status: "Статус",
-    image: "path_to_image"
-  }
+    name: 'Мобільний телефон Apple iPhone 15 Pro Max 256GB Natural Titanium (MU793RX/A)',
+    price: '100₴',
+    image: 'https://via.placeholder.com/75',
+    addedDate: '01.01.2024',
+    status: 'В наявності',
+  },
+  {
+    name: 'Мобільний телефон Apple iPhone 15 Pro Max 256GB Natural Titanium (MU793RX/A)',
+    price: '200₴',
+    image: 'https://via.placeholder.com/75',
+    addedDate: '02.01.2024',
+    status: 'Очікується',
+  },
 ];
 
 function App() {
@@ -27,7 +34,7 @@ function App() {
       case 'login-form':
         return <LoginForm />;
       case 'wishlist':
-        return <Wishlist setCurrentPage={setCurrentPage}/>;
+        return <Wishlist setCurrentPage={setCurrentPage} wishlistItems={sampleWishlistItems} />;
       default:
         return <HomePage />;
     }

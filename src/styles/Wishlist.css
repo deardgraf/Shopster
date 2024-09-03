@@ -1,3 +1,7 @@
+body, button, input, label, p, a, h1 {
+  font-family: 'Wix Madefor Display', sans-serif;
+}
+
 .wishlist-container {
     background-color: white;
     text-align: center;
@@ -104,10 +108,41 @@
     margin-top: 2rem;
     border-collapse: collapse;
   }
-  
+
+  .wishlist-table th {
+    color: grey;
+    font-weight: 100;
+    border-bottom: 1px solid lightgrey;
+  }
+
   .wishlist-table th, .wishlist-table td {
     padding: 1rem;
-    border: 1px solid #e0e0e0;
+    width: 100%;
+  }
+
+  .wishlist-table th:nth-child(1) {
+    width: 15%;
+  }
+
+  .wishlist-table th:nth-child(2), .wishlist-table td:nth-child(2) {
+    width: 40%;
+    text-align: left;
+  }
+
+  .wishlist-table th:nth-child(3), .wishlist-table td:nth-child(3) {
+    width: 10%;
+  }
+
+  .wishlist-table th:nth-child(4), .wishlist-table td:nth-child(4) {
+    width: 10%;
+  }
+
+  .wishlist-table th:nth-child(5), .wishlist-table td:nth-child(5) {
+    width: 10%;
+  }
+
+  .wishlist-table th:nth-child(6), .wishlist-table td:nth-child(6) {
+    width: 15%;
   }
   
   .product-info {
@@ -122,17 +157,21 @@
   .remove-button {
     background: none;
     border: none;
-    color: red;
-    font-size: 1.25rem;
+    color: #6746CE;
+    font-size: 1.5rem;
     cursor: pointer;
     margin-right: 1rem;
   }
   
   .product-image {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     object-fit: cover;
-    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  .product-price {
+    color: #ff1887;
   }
   
   .add-to-cart-button {
@@ -148,21 +187,47 @@
   .wishlist-actions {
     margin-top: 2rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .left-actions {
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+  }
+  
+  .right-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    flex-grow: 1;
   }
   
   .discount-input {
-    flex: 1;
+    width: 50%;
     padding: 0.75rem;
     font-size: 1rem;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
   }
   
-  .apply-code-button, .add-selected-button, .add-all-button {
-    background-color: #6200ea;
-    color: white;
-    border: none;
+  .apply-code-button {
+    background-color: white;
+    color: #6746CE;
+    border: 1px solid #6746CE;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 1rem;
+    margin-right: auto;
+  }
+  
+  .add-selected-button {
+    background-color: white;
+    color: #6746CE;
+    border: 1px solid #6746CE;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     cursor: pointer;
@@ -170,6 +235,48 @@
     margin-left: 1rem;
   }
   
+  .add-all-button {
+    background-color: white;
+    color: #6746CE;
+    border: 1px solid #6746CE;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 1rem;
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 2px solid #6746CE;
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+  }
+  
+  input[type="checkbox"]:checked {
+    background-color: #6746CE;
+    border: 2px solid #6746CE;
+  }
+  
+  input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+  }
+  
   p {
     font-size: 16px;
+  }
+
+  .not-empty-header {
+    text-align: left;
   }

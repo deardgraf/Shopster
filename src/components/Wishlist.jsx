@@ -4,23 +4,21 @@ import '../styles/Wishlist.css';
 const WishlistPage = ({ setCurrentPage, wishlistItems = [] }) => {
   const [email, setEmail] = useState('');
   const [discountCode, setDiscountCode] = useState('');
-
+  
   const handleSubscribe = (e) => {
     e.preventDefault();
-    // Логіка підписки
     console.log('Підписано з email:', email);
   };
 
   const handleApplyCode = () => {
-    // Логіка застосування коду знижки
     console.log('Застосовано код знижки:', discountCode);
   };
 
   return (
     <div className="wishlist-container">
-      <h1>Список бажань</h1>
       {wishlistItems.length === 0 ? (
         <div>
+          <h1>Список бажань</h1>
           <p>Ваш список бажань наразі порожній.</p>
           <button className="return-button" onClick={() => setCurrentPage('home')}>
             Повернутися до магазину
@@ -38,27 +36,27 @@ const WishlistPage = ({ setCurrentPage, wishlistItems = [] }) => {
               </p>
             </div>
             <div className="subscribe-form-container">
-            <form className="subscribe-form" onSubmit={handleSubscribe}>
+              <form className="subscribe-form" onSubmit={handleSubscribe}>
                 <table className="subscribe-table">
-                    <tbody>
+                  <tbody>
                     <tr>
-                        <td>
+                      <td>
                         <input 
-                            type="email" 
-                            placeholder="Введіть адресу вашої електронної пошти" 
-                            className="subscribe-input"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
+                          type="email" 
+                          placeholder="Введіть адресу вашої електронної пошти" 
+                          className="subscribe-input"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
                         />
-                        </td>
-                        <td>
+                      </td>
+                      <td>
                         <button type="submit" className="subscribe-button">Надіслати</button>
-                        </td>
+                      </td>
                     </tr>
-                    </tbody>
+                  </tbody>
                 </table>
-            </form>
+              </form>
               <p className="subscribe-agreement">
                 Підписуючись, ви погоджуєтесь з нашими <a href="/terms" className="agreement-link"> Умовами</a> та <a href="/privacy-policy" className="agreement-link"> Політикою конфіденційності </a> та <a href="/cookie-policy" className="agreement-link"> файлів cookie</a>.
               </p>
@@ -67,9 +65,11 @@ const WishlistPage = ({ setCurrentPage, wishlistItems = [] }) => {
         </div>
       ) : (
         <div>
+          <h1 className="not-empty-header">Список бажань</h1>
           <table className="wishlist-table">
             <thead>
               <tr>
+                <th></th>
                 <th>Товар</th>
                 <th>Вартість</th>
                 <th>Додано</th>
@@ -84,6 +84,8 @@ const WishlistPage = ({ setCurrentPage, wishlistItems = [] }) => {
                     <input type="checkbox" className="wishlist-checkbox" />
                     <button className="remove-button">x</button>
                     <img src={item.image} alt={item.name} className="product-image" />
+                  </td>
+                  <td className="product-img">
                     <span>{item.name}</span>
                   </td>
                   <td className="product-price">{item.price}</td>
@@ -97,16 +99,21 @@ const WishlistPage = ({ setCurrentPage, wishlistItems = [] }) => {
             </tbody>
           </table>
           <div className="wishlist-actions">
-            <input 
-              type="text" 
-              placeholder="Код для знижки" 
-              className="discount-input"
-              value={discountCode}
-              onChange={(e) => setDiscountCode(e.target.value)}
-            />
-            <button className="apply-code-button" onClick={handleApplyCode}>Застосувати код</button>
-            <button className="add-selected-button">Додати обране</button>
-            <button className="add-all-button">Додати все</button>
+            <div className="left-actions">
+              <input 
+                type="text" 
+                placeholder="Код для знижки" 
+                className="discount-input"
+                value={discountCode}
+                onChange={(e) => setDiscountCode(e.target.value)}
+              />
+              <button className="apply-code-button" onClick={handleApplyCode}>Застосувати код</button>
+            </div>
+
+            <div className="right-actions">
+              <button className="add-selected-button">Додати обране</button>
+              <button className="add-all-button">Додати все</button>
+            </div>
           </div>
         </div>
       )}
